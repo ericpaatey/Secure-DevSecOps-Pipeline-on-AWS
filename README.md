@@ -133,8 +133,7 @@ This project demonstrates:
 * vulnerability management
 * production-grade governance
 
-Modern CI/CD pipelines should not just deploy applications.
-They should actively protect production systems.
+Modern CI/CD pipelines should actively protect production systems and not simply deploy applications.
 
 
 
