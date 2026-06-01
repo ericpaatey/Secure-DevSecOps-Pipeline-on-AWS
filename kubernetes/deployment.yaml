@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: secure-devsecops-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: secure-devsecops-app
+
+  template:
+    metadata:
+      labels:
+        app: secure-devsecops-app
+
+    spec:
+      containers:
+        - name: app
+
+          image: your-ecr-repo/devsecops-app:latest
+
+          ports:
+            - containerPort: 3000
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
